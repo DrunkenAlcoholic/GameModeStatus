@@ -9,7 +9,7 @@ gamemode, python
 $ chmod +x GamemodeStatus.py
 $ GamemodeStatus.py
 ```
- **Optional** - copy GamemodeStatus.py to your bin folder location /bin or ~/bin and add to AutoStart ``` GamemodeStatus.py & ```
+ **Optional** - copy GamemodeStatus.py to your bin folder location /bin or ~/bin and add to AutoStart command ``` GamemodeStatus.py & ```
 
 ## Screenshot
 ![alt text](GameModeMonitor.png "Title Text")
