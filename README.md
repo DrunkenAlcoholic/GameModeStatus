@@ -14,5 +14,6 @@ $ GamemodeStatus.py
 ![alt text](GameModeMonitor.png "Title Text")
 
 ## TODO
+* Add some error handling
 * Tidy up code
 * Decide if I will make it into a budgie applet and include options or a simple daemon
