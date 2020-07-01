@@ -41,9 +41,30 @@ class GameModeStatusLoop(Thread):
         return
 
 
-# Start monitoring Thread
+# Return True if package name exsist, checking lowercase
+def IsPackageInstalled(pkgname):
+    installed = False
+    for package in packages:
+        if package.lower().startswith(pkgname.lower()):
+            installed = True
+    return installed
+
+
+# Main
 if __name__ == "__main__":
-    GameModeStatusLoop(2)
-    while True:
-        sleep(1)
+    # Set directory with package listing
+    pkglocation = "/var/lib/eopkg/package"
+    # List directory names a.k.a installed packages
+    packages = os.listdir(pkglocation)
+    # Check to make sure gamemode package is installed
+    if IsPackageInstalled("gamemode"):
+        # Start monitoring Thread
+        GameModeStatusLoop(2)
+        while True:
+            sleep(1)
+    else:
+        print(
+            "Error: gamemode package not found, please install gamemode package before running GamemodeStatus.py"
+        )
+
 
