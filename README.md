@@ -4,7 +4,7 @@ Get notified when gamemode is running, This is a basic script that calls "gamemo
 ## Requirements
 gamemode, python
 
-## Install
+## Usage
 ```shell
 $ chmod +x GamemodeStatus.py
 $ GamemodeStatus.py
