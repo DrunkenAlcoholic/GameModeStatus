@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import os
+import subprocess
 from threading import Thread
 from time import sleep
-import subprocess, os
+# GTK Notify
+from gi.repository import Notify
+
 
 # Main Thread for monitoring "gamemoded -s"
 class GameModeStatusLoop(Thread):
@@ -37,8 +41,17 @@ class GameModeStatusLoop(Thread):
 
     # Send notification to user
     def SendNotification(self, title, message, icon):
-        subprocess.run(["notify-send", title, "-i", icon, message])
-        return
+        try:
+            if Notify.init("GameModeStatus"):
+                Notify.Notification.new(title, message, icon).show()
+            else:
+                raise SyntaxError("can't initialize notification!")
+        except SyntaxError as error:
+            print(error)
+            if error == "sending notification failed!":
+                Notify.uninit()
+        else:
+            Notify.uninit()
 
 
 # Return True if package name exsist, checking lowercase
@@ -66,5 +79,3 @@ if __name__ == "__main__":
         print(
             "Error: gamemode package not found, please install gamemode package before running GamemodeStatus.py"
         )
-
-
