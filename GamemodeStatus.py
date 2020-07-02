@@ -3,7 +3,7 @@
 
 from threading import Thread
 from time import sleep
-import subprocess
+import subprocess, os
 
 # Main Thread for monitoring "gamemoded -s"
 class GameModeStatusLoop(Thread):
