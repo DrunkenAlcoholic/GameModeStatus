@@ -68,7 +68,7 @@ def IsPackageInstalled(pkgname):
 # Main
 if __name__ == "__main__":
     # Set directory with package listing
-    pkglocation = "/var/lib/eopkg/package"
+    pkglocation = "/usr/bin"
     # List directory names a.k.a installed packages
     packages = os.listdir(pkglocation)
     # Check to make sure gamemode package is installed
