@@ -18,7 +18,7 @@ class GameModeStatusLoop(Thread):
         # set as daemon so thread dies when program dies
         self.daemon = True
         self.interval = interval
-        self.status = ""
+        self.status = "gamemode is inactive"
         self.start()
 
     def run(self):
